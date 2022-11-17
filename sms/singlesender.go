@@ -2,6 +2,7 @@ package sms
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"github.com/sasaxie/qcloundsms-go/util"
@@ -72,6 +73,9 @@ func (s *SingleSender) Send(smsType int, nationCode, phoneNumber, msg, extend, e
 
 	httpClient := &http.Client{
 		Timeout: 60 * time.Second,
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		},
 	}
 
 	req, err := http.NewRequest("POST", fmt.Sprintf(singleSmsUrl, s.AppID, random), bytes.NewBuffer(bodyJson))
