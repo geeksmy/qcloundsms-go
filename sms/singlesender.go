@@ -155,6 +155,9 @@ func (s *SingleSender) SendWithParam(nationCode, phoneNumber string, templateId 
 
 	httpClient := &http.Client{
 		Timeout: 60 * time.Second,
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		},
 	}
 
 	req, err := http.NewRequest("POST", fmt.Sprintf(singleSmsUrl, s.AppID, random), bytes.NewBuffer(bodyJson))
