@@ -5,7 +5,7 @@ import (
 	"crypto/tls"
 	"encoding/json"
 	"fmt"
-	"github.com/sasaxie/qcloundsms-go/util"
+	"github.com/geeksmy/qcloundsms-go/util"
 	"io/ioutil"
 	"net/http"
 	"time"

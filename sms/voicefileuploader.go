@@ -3,8 +3,8 @@ package sms
 import (
 	"bytes"
 	"fmt"
+	"github.com/geeksmy/qcloundsms-go/util"
 	_ "github.com/paulrosania/go-charset/data"
-	"github.com/sasaxie/qcloundsms-go/util"
 	"io/ioutil"
 	"net/http"
 	"time"
